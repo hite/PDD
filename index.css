@@ -108,6 +108,9 @@ nav a {
     display: flex;
     flex-direction: column;
 }
+.c-poster-header{
+    color: #ffffff;
+}
 
 .c-basic .c-name {
     font-size: 30px;

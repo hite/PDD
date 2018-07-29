@@ -7,12 +7,69 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="index.css"></link>
     <title>柯南时间</title>
+    <script charset="utf-8" type="text/javascript">
+        function $(_selector) {
+            return document.querySelector(_selector);
+        }
+        // https://gist.github.com/polygonplanet/7952234
+        /**
+        * Format a date like YYYY-MM-DD.
+        *
+        * @param {string} template
+        * @param {Date=} [date]
+        * @return {string}
+        * @license MIT
+        */
+        function formatDate(template, date) {
+            var specs = 'YYYY:MM:DD:HH:mm:ss'.split(':');
+            date = new Date(date || Date.now() - new Date().getTimezoneOffset() * 6e4);
+            return date.toISOString().split(/[-:.TZ]/).reduce(function (template, item, i) {
+                return template.split(specs[i]).join(item);
+            }, template);
+        }
+        //
+        var hunterData = [
+            { name: 'xiangheka', userName: 'xiangheka', maxDays: '730', pubTime: 1532790000000 },
+            { name: 'diggerdu', userName: 'diggerdu', maxDays: '1024', pubTime: 1532862000000 },
+            { name: 'NINMNisnotmyname', userName: 'NINMNisnotmyname', maxDays: '512', pubTime: 1532862000000 },
+            { name: 'ikuku', userName: 'ikuku', maxDays: '365', pubTime: 1532862000000 },
+            { name: 'Kendall', userName: 'Kendall', maxDays: '618', pubTime: 1532862000000 },
+            { name: 'green15', userName: 'green15', maxDays: '348', pubTime: 1532862000000 },
+            { name: 'l12ab', userName: 'l12ab', maxDays: '500', pubTime: 1532862000000 }
+        ];
+
+        document.onreadystatechange = function (state) {
+            console.log(document.readyState);
+            if (document.readyState == 'complete') {
+                // 更新悬赏者 
+                var hunters = $('#hunter-home');
+                var hunterHtml = [];
+                for (var i = 0; i < hunterData.length; i++) {
+                    var hunter = hunterData[i];
+                    hunterHtml.push('<section class="m-hunter">\
+                <span class="num">#' + (i + 1) + '</span>\
+                <div class="c-hunter-detail" >\
+                    <div class="c-hunter-basic">\
+                        <a target="_blank" href="https://www.v2ex.com/member/' + (hunter.userName) + '" class="c-name">' + (hunter.name) + '</a>\
+                        <span class="c-day">预测 (' + (hunter.maxDays) + '天后,退市)</span>\
+                        <span>预测时间：' + formatDate('YYYY-MM-DD', hunter.pubTime) + '</span>\
+                    </div>\
+                </div>\
+            </section>');
+                }
+
+                hunters.innerHTML = hunterHtml.join('');
+            }
+        }
+        //
+
+    </script>
 </head>
 
 <body>
     <nav>
         点击
-        <a href="https://v2ex.com">悬赏公告</a>，了解详情
+        <a target="_blank" href="https://www.v2ex.com/t/475020">悬赏公告</a>，了解详情
     </nav>
     <div class="m-body">
         <div class="m-main_zone">
@@ -23,10 +80,11 @@
                         <span class="c-money-flag">¥</span>
                         <span class="c-money-value">
                             <script charset="utf-8" type="text/javascript">
-                            var launchDate = new Date(2018,6,26, 9, 0, 0);
-                            var nowDate = new Date();
-                            var offset = nowDate.getTime() - launchDate.getTime();
-                            ;document.writeln((offset / 86400000).toFixed(2));</script></span>
+                                var launchDate = new Date(2018, 6, 26, 9, 0, 0);
+                                var nowDate = new Date();
+                                var offset = nowDate.getTime() - launchDate.getTime();
+                                ; document.writeln((offset / 86400000).toFixed(2));</script>
+                        </span>
                     </div>
                 </article>
             </div>
@@ -44,30 +102,23 @@
                 <div class="m-ad-place">
                     <img alt="头像" title="v2ex 里的头像" src="https://cdn.v2ex.com/avatar/15bb/63b2/7692_large.png?m=1334330295" />
                 </div>
-                
+
             </section>
         </div>
         <div class="c-poster-header sub_title">赏金猎人</div>
-        <div class="m-hunter-gallery">
-            <section class="m-hunter">
-                <span class="num">#1</span>
-                <div class="c-hunter-detail">
-                    <div class="c-hunter-basic">
-                        <a href="https://www.v2ex.com/member/xiangheka" class="c-name">xiangheka</a>
-                        <span class="c-day">预测 (2年=730天,退市)</span>
-                        <span>预测时间：2018-07-28</span>
-                    </div>
-                </div>
-            </section>
+        <div class="m-hunter-gallery" id="hunter-home">
+            <!-- 占位 -->
         </div>
         <div class="m-pdd-info">
             <div>备注：</div>
-            <label class="w-info-title">拼多多上市时间：2018年07月26日，纳斯达克，股票号码：<a href="https://xueqiu.com/S/PDD">PDD</a></span>
+            <label class="w-info-title">拼多多上市时间：2018年07月26日，纳斯达克，股票号码：
+                <a target="_blank" href="https://xueqiu.com/S/PDD">PDD</a>
+                </span>
         </div>
     </div>
 
     <footer>
-        <div class="sub_title">最后更新时间: 2018-07-28 20:20:34</div>
+        <div class="sub_title">最后更新时间: 2018-07-29 17:59:57</div>
     </footer>
 </body>
 
