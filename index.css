@@ -108,9 +108,6 @@ nav a {
     display: flex;
     flex-direction: column;
 }
-.c-poster-header{
-    color: #ffffff;
-}
 
 .c-basic .c-name {
     font-size: 30px;
@@ -142,6 +139,10 @@ nav a {
     flex-direction: column;
     justify-content: flex-end;
 }
+.c-hunter-header{
+    color: #ffffff;
+}
+
 .c-hunter-basic a{
     color: #f6a669;
 }
