@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="index.css"></link>
+    <link rel="stylesheet" href="index.css">
+    </link>
     <title>柯南时间</title>
     <script charset="utf-8" type="text/javascript">
         function $(_selector) {
@@ -13,13 +14,13 @@
         }
         // https://gist.github.com/polygonplanet/7952234
         /**
-        * Format a date like YYYY-MM-DD.
-        *
-        * @param {string} template
-        * @param {Date=} [date]
-        * @return {string}
-        * @license MIT
-        */
+         * Format a date like YYYY-MM-DD.
+         *
+         * @param {string} template
+         * @param {Date=} [date]
+         * @return {string}
+         * @license MIT
+         */
         function formatDate(template, date) {
             var specs = 'YYYY:MM:DD:HH:mm:ss'.split(':');
             date = new Date(date || Date.now() - new Date().getTimezoneOffset() * 6e4);
@@ -28,16 +29,55 @@
             }, template);
         }
         //
-        var hunterData = [
-            { name: 'xiangheka', userName: 'xiangheka', maxDays: '730', pubTime: 1532790000000 },
-            { name: 'diggerdu', userName: 'diggerdu', maxDays: '1024', pubTime: 1532862000000 },
-            { name: 'NINMNisnotmyname', userName: 'NINMNisnotmyname', maxDays: '512', pubTime: 1532862000000 },
-            { name: 'ikuku', userName: 'ikuku', maxDays: '365', pubTime: 1532862000000 },
-            { name: 'Kendall', userName: 'Kendall', maxDays: '618', pubTime: 1532862000000 },
-            { name: 'green15', userName: 'green15', maxDays: '348', pubTime: 1532862000000 },
-            { name: 'l12ab', userName: 'l12ab', maxDays: '500', pubTime: 1532862000000 },
-            { name: 'yimity', userName: 'yimity', maxDays: '1825', pubTime: 1532862000000 }
-            
+        var hunterData = [{
+                name: 'xiangheka',
+                userName: 'xiangheka',
+                maxDays: '730',
+                pubTime: 1532790000000
+            },
+            {
+                name: 'diggerdu',
+                userName: 'diggerdu',
+                maxDays: '1024',
+                pubTime: 1532862000000
+            },
+            {
+                name: 'NINMNisnotmyname',
+                userName: 'NINMNisnotmyname',
+                maxDays: '512',
+                pubTime: 1532862000000
+            },
+            {
+                name: 'ikuku',
+                userName: 'ikuku',
+                maxDays: '365',
+                pubTime: 1532862000000
+            },
+            {
+                name: 'Kendall',
+                userName: 'Kendall',
+                maxDays: '618',
+                pubTime: 1532862000000
+            },
+            {
+                name: 'green15',
+                userName: 'green15',
+                maxDays: '348',
+                pubTime: 1532862000000
+            },
+            {
+                name: 'l12ab',
+                userName: 'l12ab',
+                maxDays: '500',
+                pubTime: 1532862000000
+            },
+            {
+                name: 'yimity',
+                userName: 'yimity',
+                maxDays: '1825',
+                pubTime: 1532862000000
+            }
+
         ];
 
         document.onreadystatechange = function (state) {
@@ -49,12 +89,18 @@
                 for (var i = 0; i < hunterData.length; i++) {
                     var hunter = hunterData[i];
                     hunterHtml.push('<section class="m-hunter">\
-                <span class="num">#' + (i + 1) + '</span>\
+                <span class="num">#' + (i + 1) +
+                        '</span>\
                 <div class="c-hunter-detail" >\
                     <div class="c-hunter-basic">\
-                        <a target="_blank" href="https://www.v2ex.com/member/' + (hunter.userName) + '" class="c-name">' + (hunter.name) + '</a>\
-                        <span class="c-day">预测 ' + (hunter.maxDays) + ' 天后,退市，</span>\
-                        <span>预测时间：' + formatDate('YYYY-MM-DD', hunter.pubTime) + '</span>\
+                        <a target="_blank" href="https://www.v2ex.com/member/' +
+                        (hunter.userName) + '" class="c-name">' + (hunter.name) +
+                        '</a>\
+                        <span class="c-day">预测 ' + (hunter.maxDays) +
+                        ' 天后,退市，</span>\
+                        <span>预测时间：' + formatDate('YYYY-MM-DD', hunter
+                            .pubTime) +
+                        '</span>\
                     </div>\
                 </div>\
             </section>');
@@ -64,7 +110,6 @@
             }
         }
         //
-
     </script>
 </head>
 
@@ -84,8 +129,9 @@
                             <script charset="utf-8" type="text/javascript">
                                 var launchDate = new Date(2018, 6, 26, 9, 0, 0);
                                 var nowDate = new Date();
-                                var offset = nowDate.getTime() - launchDate.getTime();
-                                ; document.writeln((offset / 86400000).toFixed(2));</script>
+                                var offset = nowDate.getTime() - launchDate.getTime();;
+                                document.writeln((offset / 86400000).toFixed(2));
+                            </script>
                         </span>
                     </div>
                 </article>
